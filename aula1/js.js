@@ -14,6 +14,23 @@
 		{
 			numeros[i] = numeros[i-1] + numeros[i-2];
 		}
-		document.getElementById("resultado").innerHTML += "<br/> Fib(" + x + ") = " + numeros;
+		//document.getElementById("resultado").innerHTML += "<br/> Fib(" + x + ") = " + numeros;
+		console.log(numeros);
 	}
 }
+
+function multiplos()
+	{ 
+		var n = [];
+		for (i = 1; i <=20; i++)
+			{
+				n[i] = i *4;
+			}
+		console.log(n);	
+	}
+	
+function cliques()
+	{
+		nc +=1;
+		console.log(nc);
+	}
