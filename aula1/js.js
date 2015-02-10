@@ -40,3 +40,16 @@ function confirmado()
 	{
 		alert("carregou");
 	}
+
+function popup()
+	{
+		var retorno = confirm("Deseja abir uma nova janela?");
+		if(retorno)
+			{
+				open("http://www.google.com");
+			}
+		else
+			{
+				console.log("cancelado");
+			}
+	}
