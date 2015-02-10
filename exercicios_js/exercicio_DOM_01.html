@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script>
-		function exibirImagem(url)
-		{
-			document.getElementById("p2").src = url;
-		}
-	</script>
+<script>
+function mostrar(url)
+	{
+		document.getElementById('p2').innerHTML = '<img src="'+url+'">';
+	}
+</script>
 </head>
 <body>
   <p>
-    <button onclick="exibirImagem('violao.jpg');">Violão</button> 
-    <button onclick="exibirImagem('piano.png');">Piano</button> 
-    <button onclick="exibirImagem('saxofone.png');">Saxofone</button> 
+    <button onclick = "mostrar('violao.jpg');" id = "show">Violão</button> 
+    <button  onclick = "mostrar('piano.png');">Piano</button> 
+    <button onclick = "mostrar('saxofone.png');">Saxofone</button> 
   </p>
-	<img src="" id="p2" />
+  <p id="p2">
+  </p>
 </body>
 </html>
-
