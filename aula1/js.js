@@ -29,8 +29,9 @@ function multiplos()
 		console.log(n);	
 	}
 	
+var nc = 0;
 function cliques()
 	{
-		nc +=1;
+		nc++;
 		console.log(nc);
 	}
