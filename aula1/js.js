@@ -35,3 +35,8 @@ function cliques()
 		nc++;
 		console.log(nc);
 	}
+
+function confirmado()
+	{
+		alert("carregou");
+	}
