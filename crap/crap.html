@@ -20,21 +20,31 @@ var soma = 0;
 function Verificar()
 	{
 		rodada++;
-		if (rodada === 1)
+		if (rodada == 1)
 			{
 				soma = dado1 + dado2;
-				if (soma === 7 || soma === 11)   alert('Jogador ganhou!');
-				if (soma === 2 || soma === 3 || soma === 12)   alert('Jogador perdeu!');				
+				if (soma == 7 || soma == 11)   
+					{
+						alert('Jogador ganhou!');
+						$("#botao").attr("disabled", "disabled");
+					}
+				else if (soma == 2 || soma == 3 || soma == 12)
+					{
+						alert('Jogador perdeu!');
+						$("#botao").attr("disabled", "disabled");						
+					}
 			}
 		else 
 			{
 				if (soma == dado1 + dado2)
 					{
 						alert('Jogador venceu!');
+						$("#botao").attr("disabled", "disabled");
 					}
-				else if (soma == 7)
+				else if (dado1 + dado2 == 7)
 					{
 						alert('Jogador perdeu!');
+						$("#botao").attr("disabled", "disabled");
 					}
 			}
 	}
@@ -53,6 +63,6 @@ padding: 15px 20px 15px 20px;
 <img src = "imagens/1.png" id = "dado1" class = "dado"/>
 <img src = "imagens/1.png" id = "dado2" class = "dado"/>
 
-<button onclick="Random();">Try!</button>
+<button id="botao" onclick="Random();">Try!</button>
 </body>
 </html>
