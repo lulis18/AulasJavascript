@@ -22,13 +22,78 @@ function Random()
 {
 width: 100px;
 height: 100px;
-padding: 15px 20px 15px 20px;
+padding: 0px;
+position: absolute;
+}
+
+#mesa
+{
+border-radius: 15px;
+width: 900px;
+height: 500px;
+padding: 15px;
+margin: 0px auto;
+position: relative;
+background-color: #008904;
+border: 15px solid #FFB003;
+}
+
+#botao
+{
+float: right;
+position: absolute;
+bottom: 20px;
+right: 20px;
+font-size: 30px;
+}
+
+table
+{
+position: relative;
+margin: 0px auto;
+border-spacing: 0px;
+border: solid #F4F4F4 3px;
+}
+
+table td
+{
+border: solid #F4F4F4 3px;
+margin: 0px;
+padding: 20px;
+width: 65px;
+}
+
+table td h1
+{
+font-size: 60px;
+line-height: 60px;
+text-align: center;
 }
 </style>
 <body>
-<img src = "imagens/1.png" id = "dado1" class = "dado"/>
-<img src = "imagens/1.png" id = "dado2" class = "dado"/>
+<div id="mesa">
+	<table>
+		<tr>
+			<td><h1>4</h1></td>
+			<td><h1>5</h1></td>
+			<td><h1>6</h1></td>
+			<td><h1>8</h1></td>
+			<td><h1>9</h1></td>
+			<td><h1>10</h1></td>
+		</tr>
+		<tr>
+			<td id="c4"></td>
+			<td id="c5"></td>
+			<td id="c6"></td>
+			<td id="c8"></td>
+			<td id="c9"></td>
+			<td id="c10"></td>
+		</tr>
+	</table>
+	<img src = "imagens/1.png" id = "dado1" class = "dado"/>
+	<img src = "imagens/1.png" id = "dado2" class = "dado"/>
 
-<button onclick="Random();">Try!</button>
+	<button id="botao" onclick="Random();">Jogar</button>
+</div>
 </body>
 </html>
