@@ -33,6 +33,10 @@ function Verificar()
 						alert('Jogador perdeu!');
 						$("#botao").attr("disabled", "disabled");						
 					}
+				else
+					{
+						$('#c' + soma).css('background', '#FFB003');
+					}
 			}
 		else 
 			{
@@ -76,9 +80,33 @@ border: 15px solid #FFB003;
 {
 float: right;
 position: absolute;
-bottom: 20px;
-right: 20px;
+bottom: 0px;
+right: 0px;
 font-size: 30px;
+}
+
+#rolarDados
+{
+position: relative;
+float: left;
+height: 270px;
+width: 700px;
+}
+
+#soma
+{
+position: relative;
+float: left;
+height: 225px;
+width: 700px;
+}
+
+#direita
+{
+position: relative;
+float: right;
+height: 500px;
+width: 190px;
 }
 
 table
@@ -106,28 +134,33 @@ text-align: center;
 </style>
 <body>
 <div id="mesa">
-	<table>
-		<tr>
-			<td><h1>4</h1></td>
-			<td><h1>5</h1></td>
-			<td><h1>6</h1></td>
-			<td><h1>8</h1></td>
-			<td><h1>9</h1></td>
-			<td><h1>10</h1></td>
-		</tr>
-		<tr>
-			<td id="c4"></td>
-			<td id="c5"></td>
-			<td id="c6"></td>
-			<td id="c8"></td>
-			<td id="c9"></td>
-			<td id="c10"></td>
-		</tr>
-	</table>
-	<img src = "imagens/1.png" id = "dado1" class = "dado"/>
-	<img src = "imagens/1.png" id = "dado2" class = "dado"/>
-
-	<button id="botao" onclick="Random();">Jogar</button>
+	<div id="direita">
+		<button id="botao" onclick="Random();">Jogar</button>
+	</div>
+	<div id="soma">
+		<table>
+			<tr>
+				<td><h1>4</h1></td>
+				<td><h1>5</h1></td>
+				<td><h1>6</h1></td>
+				<td><h1>8</h1></td>
+				<td><h1>9</h1></td>
+				<td><h1>10</h1></td>
+			</tr>
+			<tr>
+				<td id="c4"></td>
+				<td id="c5"></td>
+				<td id="c6"></td>
+				<td id="c8"></td>
+				<td id="c9"></td>
+				<td id="c10"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="rolarDados">
+		<img src = "imagens/1.png" id = "dado1" class = "dado"/>
+		<img src = "imagens/1.png" id = "dado2" class = "dado"/>
+	</div>
 </div>
 </body>
 </html>
