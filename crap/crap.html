@@ -7,12 +7,36 @@
 <script>
 var dado1 = 6;
 var dado2 = 1;
+var rodada = 0;
 function Random()
 	{
 		dado1 = parseInt((Math.random()*100)%6 + 1);
 		dado2 = parseInt((Math.random()*100)%6 + 1);
 		$('#dado1').attr('src', "imagens/" + dado1 + ".png");
 		$('#dado2').attr('src', "imagens/" + dado2 + ".png");
+		Verificar();
+	}
+var soma = 0;
+function Verificar()
+	{
+		rodada++;
+		if (rodada === 1)
+			{
+				soma = dado1 + dado2;
+				if (soma === 7 || soma === 11)   alert('Jogador ganhou!');
+				if (soma === 2 || soma === 3 || soma === 12)   alert('Jogador perdeu!');				
+			}
+		else 
+			{
+				if (soma == dado1 + dado2)
+					{
+						alert('Jogador venceu!');
+					}
+				else if (soma == 7)
+					{
+						alert('Jogador perdeu!');
+					}
+			}
 	}
 
 </script>
