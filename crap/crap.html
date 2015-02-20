@@ -3,7 +3,15 @@
 <title></title>
 </head>
 
+<script src="jquery-1.11.2.min.js"></script>
 <script>
+var dado1 = 1;
+var dado2 = 1;
+function Random()
+	{
+		$('#dado1').attr('src', "imagens/" + dado1 + ".png");
+		$('#dado2').attr('src', "imagens/" + dado2 + ".png");
+	}
 
 </script>
 
@@ -12,10 +20,13 @@
 {
 width: 100px;
 height: 100px;
+padding: 15px 20px 15px 20px;
 }
 </style>
 <body>
 <img src = "#" id = "dado1" class = "dado"/>
 <img src = "#" id = "dado2" class = "dado"/>
+
+<button onclick="Random()">Try!</button>
 </body>
 </html>
