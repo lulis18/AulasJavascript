@@ -14,6 +14,7 @@ function Random()
 		dado2 = parseInt((Math.random()*100)%6 + 1);
 		$('#dado1').attr('src', "imagens/" + dado1 + ".png");
 		$('#dado2').attr('src', "imagens/" + dado2 + ".png");
+		Inserir_tabela();
 		Verificar();
 	}
 var soma = 0;
@@ -51,6 +52,12 @@ function Verificar()
 						$("#botao").attr("disabled", "disabled");
 					}
 			}
+	}
+	function Inserir_tabela()
+	{
+		var j;
+		$('#j' + (rodada % 5)).html(dado1+dado2);
+	
 	}
 
 </script>
@@ -135,6 +142,15 @@ text-align: center;
 <body>
 <div id="mesa">
 	<div id="direita">
+	
+	<table>
+		<tr><td id = "j0"></td></tr>
+		<tr><td id = "j1"></td></tr>
+		<tr><td id = "j2"></td></tr>
+		<tr><td id = "j3"></td></tr>
+		<tr><td id = "j4"></td></tr>
+	</table>
+	
 		<button id="botao" onclick="Random();">Jogar</button>
 	</div>
 	<div id="soma">
