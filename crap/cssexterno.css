@@ -1,0 +1,78 @@
+h3{
+margin: 50px 5px 0px 200px;
+}
+.dado 
+{
+width: 100px;
+height: 100px;
+padding: 0px;
+position: absolute;
+}
+
+#mesa
+{
+border-radius: 15px;
+width: 900px;
+height: 500px;
+padding: 15px;
+margin: 0px auto;
+position: relative;
+background-color: #008904;
+border: 15px groove #FFB003;
+}
+
+#botao
+{
+float: right;
+position: absolute;
+bottom: 0px;
+right: 0px;
+font-size: 30px;
+}
+
+#rolarDados
+{
+position: relative;
+float: left;
+height: 270px;
+width: 700px;
+}
+
+#soma
+{
+position: relative;
+float: left;
+height: 225px;
+width: 700px;
+}
+
+#direita
+{
+position: relative;
+float: right;
+height: 500px;
+width: 190px;
+}
+
+table
+{
+position: relative;
+margin: 0px auto;
+border-spacing: 0px;
+border: outset #F4F4F4 3px;
+}
+
+table td
+{
+border: solid #F4F4F4 3px;
+margin: 0px;
+padding: 20px;
+width: 65px;
+}
+
+table td h1
+{
+font-size: 60px;
+line-height: 60px;
+text-align: center;
+}
