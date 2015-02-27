@@ -20,6 +20,7 @@ function Verificar()
 				soma = dado1 + dado2;
 				if (soma == 7 || soma == 11)   
 					{
+						
 						alert('Jogador ganhou! Recarregue a página para jogar novamente!');
 						$("#botao").attr("disabled", "disabled");
 					}
@@ -70,3 +71,10 @@ function RolarDados()
 		$("#dado2").css('left', posicaoX2);
 		$("#dado2").css('top', posicaoY2);
 	}
+function Refresh(){
+		 $(document).ready(function() {
+            $('#botao2').click(function() {
+                location.reload();
+            });
+        });   
+		}

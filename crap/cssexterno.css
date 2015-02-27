@@ -29,6 +29,14 @@ bottom: 0px;
 right: 0px;
 font-size: 30px;
 }
+#botao2{
+float: right;
+position: absolute;
+bottom: 0px;
+right: 0px;
+margin: 0px 0px 45px 50px;
+font-size: 30px;
+}
 
 #rolarDados
 {
