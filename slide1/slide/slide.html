@@ -139,11 +139,23 @@ $(document).ready(function()
 	$('#next').click(function()
 	{
 		next();
+		if(slideIniciado != false)
+		{
+			clearInterval(slideIniciado);
+			$('#iniciarSlide').children('img').attr('src', 'playbtn.jpg');
+			slideIniciado = false;
+		}
 	});
 	
 	$('#b4').click(function()
 	{
 		voltar(); 
+		if(slideIniciado != false)
+		{
+			clearInterval(slideIniciado);
+			$('#iniciarSlide').children('img').attr('src', 'playbtn.jpg');
+			slideIniciado = false;
+		}
 	});
 	
 	$('#iniciarSlide').click(function()
