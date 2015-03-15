@@ -1,0 +1,207 @@
+<DOCTYPE! html>
+<head>
+	<title>SlideShow com Galeria</title>
+	
+	<script src="jquery-1.11.2.min.js"></script>
+<style> 
+body{
+background: url('http://www.designbolts.com/wp-content/uploads/2012/12/Noise-lines-White-Tileable-pattern-for-website-background.jpg') repeat;
+}
+h1{
+margin-left: 50%;
+font: "Times New Roman";
+color: black;
+}
+.imagem{
+width: 250px;
+height: 200px;
+overflow: hidden;
+margin: 10px;
+float: left;
+position: relative;
+border: 7px groove;
+}
+
+.galeria{
+position: relative;
+float: none;
+width: 100%;
+clear: both;
+}
+.modal{
+width: 100%;
+height: 100%;
+z-indez: 9000;
+position: fixed;
+left: 0px;
+top: 0px;
+visibility: hidden;
+}
+#mascara{
+width: 100%;
+height: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+background-color: #000;
+opacity: 0.8;
+}
+#imagem_grande{
+padding: 10px;
+background-color: #fff;
+left: 50%;
+top: 50%;
+position: relative;
+border-radius: 10px;
+width: 0px;
+height: 0px;
+}
+#next{
+right: 0px;
+width: 30px;
+height: 50px;
+background-color: #f00;
+top: 50%;
+margin-top: -25px;
+position: absolute;
+}
+#b4{
+left: 0px;
+width: 30px;
+height: 50px;
+background-color: #f00;
+top: 50%;
+margin-top: -25px;
+position: absolute;
+}
+#fechar{
+right: 0px;
+top: -15px;
+width: 30px;
+height: 30px;
+//background-color: #f00;
+position: absolute;
+}
+</style>
+
+	<script>
+var imagemAtual = -1;
+$(document).ready(function()
+{
+	$('.imagem_pequena').click(function()
+	{
+		$("#imagem_grande").children('img').attr('src', $(this).attr('src'));
+		$("#imagem_grande").attr('class', $(this).parent().parent().attr('id'));
+		$('.modal').css('visibility', 'visible');
+		$("#imagem_grande").css('width', $("#imagem_grande").children('img').css('width'));
+		$("#imagem_grande").css('height', $("#imagem_grande").children('img').css('height'));
+		$('#imagem_grande').css('margin-left', '-' + (parseInt($("#imagem_grande").css('width'))/2));
+		$('#imagem_grande').css('margin-top', '-' + (parseInt($("#imagem_grande").css('height'))/2));
+	
+		var classe = '#' + $('#imagem_grande').attr('class');
+		var filhos = $(classe).children('div').children('img');
+		var imagemAberta = ($("#imagem_grande").children('img'))[0];
+		for(i = 0; i < filhos.size(); i++)
+		{
+			if(filhos[i].src == imagemAberta.currentSrc)
+			{
+				imagemAtual = i;
+				break;
+			}
+		}
+	}
+	);
+	
+	$('#fechar').click(function()
+	{
+		$('.modal').css('visibility', 'hidden');
+		imagemAtual = -1;
+	});
+	
+	$('#next').click(function()
+	{
+		next();
+	});
+	
+	$('#b4').click(function()
+	{
+		voltar(); 
+	});
+	
+	
+});
+
+function next()
+{
+	var classe = '#' + $('#imagem_grande').attr('class');
+	var filhos = $(classe).children('div').children('img');
+	var proxima = filhos[(++imagemAtual)%filhos.size()];
+	
+	$("#imagem_grande").children('img').attr('src', proxima.src);
+	$("#imagem_grande").css('width', $("#imagem_grande").children('img').css('width'));
+	$("#imagem_grande").css('height', $("#imagem_grande").children('img').css('height'));
+	$('#imagem_grande').css('margin-left', '-' + (parseInt($("#imagem_grande").css('width'))/2));
+	$('#imagem_grande').css('margin-top', '-' + (parseInt($("#imagem_grande").css('height'))/2));
+}
+
+function voltar()
+{
+	var classe = '#' + $('#imagem_grande').attr('class');
+	var filhos = $(classe).children('div').children('img');
+	imagemAtual--;
+	if (imagemAtual < 0) imagemAtual = filhos.size()-1;
+	var proxima = filhos[imagemAtual];
+	
+	$("#imagem_grande").children('img').attr('src', proxima.src);
+	$("#imagem_grande").css('width', $("#imagem_grande").children('img').css('width'));
+	$("#imagem_grande").css('height', $("#imagem_grande").children('img').css('height'));
+	$('#imagem_grande').css('margin-left', '-' + (parseInt($("#imagem_grande").css('width'))/2));
+	$('#imagem_grande').css('margin-top', '-' + (parseInt($("#imagem_grande").css('height'))/2));
+}	
+	</script>
+</head>
+<body>
+	<div class = "galeria" id ="g1">
+	<h1> Galeria 1 </h1>
+		<div class = "imagem">
+			<img src="img1.jpg" class = "imagem_pequena"/>
+		</div>
+		<div class = "imagem">
+			<img src="img2.jpg" class = "imagem_pequena"/>
+		</div>
+		<div class = "imagem">
+			<img src="img3.jpg" class = "imagem_pequena"/>
+		</div>
+		<div class = "imagem">
+			<img src="img4.jpg" class = "imagem_pequena"/>
+		</div>
+	</div>
+	
+	<div class = "galeria" id ="g2">
+	<h1> Galeria 2 </h1>
+		<div class = "imagem">
+			<img src="img5.jpg" class = "imagem_pequena"/>
+		</div>
+		<div class = "imagem">
+			<img src="img6.jpg" class = "imagem_pequena"/>
+		</div>
+		<div class = "imagem">
+			<img src="img7.jpg" class = "imagem_pequena"/>
+		</div>
+		<div class = "imagem">
+			<img src="img8.jpg" class = "imagem_pequena"/>
+		</div>
+	</div>
+	
+	<div class="modal">
+		<div id="mascara"></div>
+		<div id = "next"> <img src = "setanext.jpg" width="100%" height = "100%"/> </div>
+		<div id = "b4"> <img src = "setab4.jpg" width="100%" height = "100%"/></div>
+		<div id = "fechar"><h3> <img src = "closebtn.png" width="100%" height = "100%"/> </h3> </div>
+		<div id = "imagem_grande">
+			<img src="#"/>
+		</div>
+	</div>
+</body>
+
+</html>
