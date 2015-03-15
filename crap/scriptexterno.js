@@ -10,6 +10,7 @@ function Random()
 		Inserir_tabela();
 		RolarDados();
 		Verificar();
+		
 	}
 var soma = 0;
 function Verificar()
@@ -21,12 +22,12 @@ function Verificar()
 				if (soma == 7 || soma == 11)   
 					{
 						
-						alert('Jogador ganhou! Recarregue a página para jogar novamente!');
+						alert('Jogador ganhou! Clique em refresh para jogar novamente!');
 						$("#botao").attr("disabled", "disabled");
 					}
 				else if (soma == 2 || soma == 3 || soma == 12)
 					{
-						alert('Jogador perdeu! Recarregue a página para jogar novamente!');
+						alert('Jogador perdeu! Clique em refresh para jogar novamente!');
 						$("#botao").attr("disabled", "disabled");						
 					}
 				else
@@ -75,6 +76,11 @@ function Refresh(){
 		 $(document).ready(function() {
             $('#botao2').click(function() {
                 location.reload();
+				
             });
         });   
+				Massa();
 		}
+function Massa() {
+    document.getElementById("myP").style.visibility = "hidden";
+}
