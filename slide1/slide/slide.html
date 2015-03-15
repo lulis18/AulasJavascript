@@ -82,10 +82,28 @@ height: 30px;
 //background-color: #f00;
 position: absolute;
 }
+#iniciarSlide{
+right: 40px;
+top: 5px;
+width: 30px;
+height: 30px;
+background-color: #00f;
+position: absolute;
+}
+#encerrarSlide{
+right: 40px;
+top: 5px;
+width: 30px;
+height: 30px;
+background-color: #f00;
+position: absolute;
+visibility: hidden;
+}
 </style>
 
 	<script>
 var imagemAtual = -1;
+var slideIniciado;
 $(document).ready(function()
 {
 	$('.imagem_pequena').click(function()
@@ -109,6 +127,10 @@ $(document).ready(function()
 				break;
 			}
 		}
+		
+		$('#iniciarSlide').css('visibility', 'visible');
+		$('#encerrarSlide').css('visibility', 'hidden');
+		clearInterval(slideIniciado);
 	}
 	);
 	
@@ -128,6 +150,19 @@ $(document).ready(function()
 		voltar(); 
 	});
 	
+	$('#iniciarSlide').click(function()
+	{
+		$('#iniciarSlide').css('visibility', 'hidden');
+		$('#encerrarSlide').css('visibility', 'visible');
+		var slideIniciado = setInterval(function() {next()}, 3000);
+	});
+	
+	$('#encerrarSlide').click(function()
+	{
+		$('#iniciarSlide').css('visibility', 'visible');
+		$('#encerrarSlide').css('visibility', 'hidden');
+		clearInterval(slideIniciado);
+	});
 	
 });
 
@@ -198,6 +233,8 @@ function voltar()
 		<div id = "next"> <img src = "setanext.jpg" width="100%" height = "100%"/> </div>
 		<div id = "b4"> <img src = "setab4.jpg" width="100%" height = "100%"/></div>
 		<div id = "fechar"><h3> <img src = "closebtn.png" width="100%" height = "100%"/> </h3> </div>
+		<div id = "iniciarSlide"></div>
+		<div id = "encerrarSlide"></div>
 		<div id = "imagem_grande">
 			<img src="#"/>
 		</div>
