@@ -103,7 +103,7 @@ visibility: hidden;
 
 	<script>
 var imagemAtual = -1;
-var slideIniciado;
+var slideIniciado = false;
 $(document).ready(function()
 {
 	$('.imagem_pequena').click(function()
@@ -129,14 +129,19 @@ $(document).ready(function()
 		}
 		
 		$('#iniciarSlide').css('visibility', 'visible');
-		$('#encerrarSlide').css('visibility', 'hidden');
-		clearInterval(slideIniciado);
+		if(slideIniciado != false)
+		{
+			clearInterval(slideIniciado);
+			$('#iniciarSlide').css('background-color', '#00f');
+			slideIniciado = false;
+		}
 	}
 	);
 	
 	$('#fechar').click(function()
 	{
 		$('.modal').css('visibility', 'hidden');
+		$('#iniciarSlide').css('visibility', 'hidden');
 		imagemAtual = -1;
 	});
 	
@@ -152,16 +157,17 @@ $(document).ready(function()
 	
 	$('#iniciarSlide').click(function()
 	{
-		$('#iniciarSlide').css('visibility', 'hidden');
-		$('#encerrarSlide').css('visibility', 'visible');
-		var slideIniciado = setInterval(function() {next()}, 3000);
-	});
-	
-	$('#encerrarSlide').click(function()
-	{
-		$('#iniciarSlide').css('visibility', 'visible');
-		$('#encerrarSlide').css('visibility', 'hidden');
-		clearInterval(slideIniciado);
+		if(slideIniciado == false)
+		{
+			slideIniciado = setInterval(function() {next()}, 3000);
+			$('#iniciarSlide').css('background-color', '#f00');
+		}
+		else
+		{
+			clearInterval(slideIniciado);
+			$('#iniciarSlide').css('background-color', '#00f');
+			slideIniciado = false;
+		}
 	});
 	
 });
@@ -234,7 +240,7 @@ function voltar()
 		<div id = "b4"> <img src = "setab4.jpg" width="100%" height = "100%"/></div>
 		<div id = "fechar"><h3> <img src = "closebtn.png" width="100%" height = "100%"/> </h3> </div>
 		<div id = "iniciarSlide"></div>
-		<div id = "encerrarSlide"></div>
+		
 		<div id = "imagem_grande">
 			<img src="#"/>
 		</div>
